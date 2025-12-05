@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Andrean Javantara - Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 182, 193, 0.15);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-30px) rotate(180deg); opacity: 1; }
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 1rem 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 107, 157, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff6b9d, #c44569, #ff8a95);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: logoGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes logoGlow {
+            from { filter: drop-shadow(0 0 10px rgba(255, 107, 157, 0.3)); }
+            to { filter: drop-shadow(0 0 20px rgba(255, 107, 157, 0.6)); }
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 107, 157, 0.2);
+            transform: translateY(-2px);
+            color: #ff6b9d;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 0 2rem;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b9d, #c44569, #a055aa, #ff8a95);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: heroGlow 3s ease-in-out infinite alternate;
+            font-weight: 700;
+        }
+
+        @keyframes heroGlow {
+            from { filter: drop-shadow(0 0 30px rgba(255, 107, 157, 0.4)); }
+            to { filter: drop-shadow(0 0 50px rgba(255, 107, 157, 0.8)); }
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            color: #e0e0e0;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #d0d0d0;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            color: white;
+            box-shadow: 0 8px 25px rgba(255, 107, 157, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #ff6b9d;
+            border: 2px solid #ff6b9d;
+        }
+
+        .btn-secondary:hover {
+            background: #ff6b9d;
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        .section {
+            padding: 6rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 4rem;
+            background: linear-gradient(45deg, #ff6b9d, #c44569, #a055aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            border-radius: 2px;
+        }
+
+        .about-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            color: #d0d0d0;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .competencies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .competency-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 107, 157, 0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .competency-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 107, 157, 0.4);
+            box-shadow: 0 15px 30px rgba(255, 107, 157, 0.1);
+        }
+
+        .competency-item i {
+            font-size: 2.5rem;
+            color: #ff6b9d;
+            margin-bottom: 1rem;
+        }
+
+        .competency-item h3 {
+            color: #ff6b9d;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .competency-item p {
+            color: #d0d0d0;
+            font-size: 0.95rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 107, 157, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(255, 107, 157, 0.15);
+            border-color: rgba(255, 107, 157, 0.4);
+        }
+
+        .skill-category h3 {
+            color: #ff6b9d;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: rgba(255, 107, 157, 0.15);
+            color: #ff6b9d;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255, 107, 157, 0.3);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(255, 107, 157, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #ff6b9d, #c44569, #a055aa);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 4rem;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 107, 157, 0.2);
+            margin-left: 2rem;
+            transition: all 0.4s ease;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -3.5rem;
+            top: 2.5rem;
+            width: 16px;
+            height: 16px;
+            background: #ff6b9d;
+            border-radius: 50%;
+            border: 4px solid rgba(26, 26, 46, 1);
+            box-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
+        }
+
+        .timeline-item:hover {
+            transform: translateX(10px);
+            border-color: rgba(255, 107, 157, 0.4);
+            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.1);
+        }
+
+        .timeline-item h3 {
+            color: #ff6b9d;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .timeline-item .company {
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .timeline-item .period {
+            color: #b0b0b0;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .timeline-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-item li {
+            margin-bottom: 0.8rem;
+            color: #d0d0d0;
+            position: relative;
+            padding-left: 2rem;
+            line-height: 1.6;
+        }
+
+        .timeline-item li::before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.1rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 3rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 107, 157, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(255, 107, 157, 0.15);
+            border-color: rgba(255, 107, 157, 0.4);
+        }
+
+        .project-card h3 {
+            color: #ff6b9d;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .project-period {
+            color: #b0b0b0;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .project-card ul {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .project-card li {
+            margin-bottom: 0.8rem;
+            color: #d0d0d0;
+            position: relative;
+            padding-left: 2rem;
+            line-height: 1.6;
+        }
+
+        .project-card li::before {
+            content: '🎯';
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+
+        .tech-tag {
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            text-align: center;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem 2rem;
+            border-radius: 25px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 107, 157, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+        }
+
+        .contact-item:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 107, 157, 0.4);
+            box-shadow: 0 20px 40px rgba(255, 107, 157, 0.15);
+        }
+
+        .contact-item i {
+            font-size: 2.5rem;
+            color: #ff6b9d;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-item h3 {
+            color: #ff6b9d;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        .contact-item a, .contact-item p {
+            color: #d0d0d0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .contact-item a:hover {
+            color: #ff6b9d;
+        }
+
+        footer {
+            background: rgba(26, 26, 46, 0.9);
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 107, 157, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: #ff6b9d;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+            padding: 1rem;
+            border-radius: 50%;
+            background: rgba(255, 107, 157, 0.1);
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 107, 157, 0.2);
+            box-shadow: 0 10px 25px rgba(255, 107, 157, 0.3);
+        }
+
+        .footer-text {
+            color: #b0b0b0;
+            font-size: 1.1rem;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeInUp 1s ease;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            .hero h2 { font-size: 1.4rem; }
+            .nav-links { display: none; }
+            .section { padding: 4rem 1rem; }
+            .section-title { font-size: 2.2rem; }
+            .projects-grid, .skills-grid { grid-template-columns: 1fr; }
+            .competencies { grid-template-columns: 1fr; }
+            .timeline { padding-left: 2rem; }
+            .timeline-item { margin-left: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="particles">
+        <div class="particle" style="left: 5%; top: 20%; animation-delay: 0s; width: 6px; height: 6px;"></div>
+        <div class="particle" style="left: 15%; top: 60%; animation-delay: 1s; width: 8px; height: 8px;"></div>
+        <div class="particle" style="left: 25%; top: 30%; animation-delay: 2s; width: 4px; height: 4px;"></div>
+        <div class="particle" style="left: 35%; top: 70%; animation-delay: 3s; width: 7px; height: 7px;"></div>
+        <div class="particle" style="left: 45%; top: 10%; animation-delay: 4s; width: 5px; height: 5px;"></div>
+        <div class="particle" style="left: 55%; top: 50%; animation-delay: 5s; width: 6px; height: 6px;"></div>
+        <div class="particle" style="left: 65%; top: 80%; animation-delay: 6s; width: 4px; height: 4px;"></div>
+        <div class="particle" style="left: 75%; top: 25%; animation-delay: 7s; width: 8px; height: 8px;"></div>
+        <div class="particle" style="left: 85%; top: 65%; animation-delay: 8s; width: 5px; height: 5px;"></div>
+        <div class="particle" style="left: 95%; top: 40%; animation-delay: 9s; width: 6px; height: 6px;"></div>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Andrean</div>
+            <ul class="nav-links">
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#skills"><i class="fas fa-cogs"></i> Skills</a></li>
+                <li><a href="#experience"><i class="fas fa-briefcase"></i> Experience</a></li>
+                <li><a href="#projects"><i class="fas fa-rocket"></i> Projects</a></li>
+                <li><a href="#education"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Muhammad Andrean Javantara</h1>
+            <h2>Full Stack Developer & Data Analyst</h2>
+            <p>Mahasiswa Teknik Informatika Universitas Negeri Surabaya dengan fokus pada Data Science, Software Engineering, dan Cybersecurity. Berpengalaman dalam pengembangan aplikasi full-stack, analisis data berbasis machine learning, penetration testing, serta manajemen proyek IT.</p>
+            <div class="btn-group">
+                <a href="#projects" class="btn btn-primary">
+                    <i class="fas fa-eye"></i> Lihat Proyek Saya
+                </a>
+                <a href="#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Hubungi Saya
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section fade-in">
+        <h2 class="section-title">Tentang Saya</h2>
+        <div class="about-content">
+            <p class="about-text">
+                Saya adalah mahasiswa Teknik Informatika yang passionate dalam mengembangkan solusi teknologi inovatif dengan pendekatan yang berorientasi pada hasil. Memiliki kemampuan problem-solving yang kuat, adaptasi cepat terhadap teknologi baru, serta pengalaman nyata dalam berbagai domain IT mulai dari software engineering, data science, cybersecurity, hingga digital marketing.
+            </p>
+            <p class="about-text">
+                Berpengalaman dalam Studi Independen Vinix7 Cybersecurity & Penetration Testing, pengembangan aplikasi edukasi berbasis full-stack, pembuatan sistem prediksi cuaca menggunakan machine learning, serta manajemen tim dan proyek dengan metodologi Agile. Saya percaya bahwa teknologi adalah alat untuk menciptakan solusi nyata yang memberi dampak positif bagi masyarakat.
+            </p>
+
+            <div class="competencies">
+                <div class="competency-item">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Full-Stack Development</h3>
+                    <p>Pengembangan aplikasi frontend dan backend</p>
+                </div>
+                <div class="competency-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Data Science & Analytics</h3>
+                    <p>Analisis statistik dan predictive modeling</p>
+                </div>
+                <div class="competency-item">
+                    <i class="fas fa-robot"></i>
+                    <h3>Machine Learning</h3>
+                    <p>Model ML untuk prediksi dan automasi</p>
+                </div>
+                <div class="competency-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Cybersecurity</h3>
+                    <p>Penetration testing & vulnerability assessment</p>
+                </div>
+                <div class="competency-item">
+                    <i class="fas fa-video"></i>
+                    <h3>Video Production</h3>
+                    <p>Editing profesional dan content creation</p>
+                </div>
+                <div class="competency-item">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Digital Marketing</h3>
+                    <p>Campaign management dan social media</p>
+                </div>
+                <div class="competency-item">
+                    <i class="fas fa-tasks"></i>
+                    <h3>Project Management</h3>
+                    <p>Metodologi Agile dan koordinasi tim</p>
+                </div>
+                <div class="competency-item">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Business Process</h3>
+                    <p>Optimasi workflow dan efisiensi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section fade-in">
+        <h2 class="section-title">Keahlian & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">C++</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-laptop-code"></i> Frontend Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">React.js</span>
+                    <span class="skill-tag">Bootstrap</span>
+                    <span class="skill-tag">Responsive Design</span>
+                    <span class="skill-tag">UI/UX Design</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-server"></i> Backend Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">RESTful APIs</span>
+                    <span class="skill-tag">Firebase</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-chart-bar"></i> Data Analysis</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Python (Pandas, NumPy)</span>
+                    <span class="skill-tag">Matplotlib</span>
+                    <span class="skill-tag">R Studio</span>
+                    <span class="skill-tag">SPSS</span>
+                    <span class="skill-tag">Excel</span>
+                    <span class="skill-tag">Matlab</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-video"></i> Video Editing</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Adobe Premiere Pro</span>
+                    <span class="skill-tag">DaVinci Resolve</span>
+                    <span class="skill-tag">VN Editor</span>
+                    <span class="skill-tag">Alight Motion</span>
+                    <span class="skill-tag">CapCut</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-tasks"></i> Project Management</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Agile Methodology</span>
+                    <span class="skill-tag">Scrum</span>
+                    <span class="skill-tag">Trello</span>
+                    <span class="skill-tag">Asana</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-bullhorn"></i> Digital Marketing</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Social Media Marketing</span>
+                    <span class="skill-tag">Campaign Management</span>
+                    <span class="skill-tag">SEO</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3><i class="fas fa-tools"></i> Tools & Others</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">Canva</span>
+                    <span class="skill-tag">WordPress</span>
+                    <span class="skill-tag">Microsoft Office</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section fade-in">
+        <h2 class="section-title">Pengalaman Profesional</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>Studi Independen — Cybersecurity & Penetration Testing</h3>
+                <div class="company">PT VINIX SEVEN AURUM</div>
+                <div class="period">2025 (Ongoing)</div>
+                <ul>
+                    <li>Melakukan vulnerability assessment pada target legal menggunakan Burp Suite dan tools pentesting lainnya</li>
+                    <li>Mengerjakan modul kerentanan: XSS, SQL Injection, CSRF, Directory Traversal, Authentication Bypass</li>
+                    <li>Membangun laporan serangan profesional untuk kebutuhan industri</li>
+                    <li>Melakukan simulasi eksploitasi menggunakan metode black box & grey box</li>
+                    <li>Menganalisis traffic jaringan dan struktur aplikasi web untuk menemukan celah keamanan</li>
+                    <li>Membuat proof-of-concept serangan berbasis web dan automasi pemindaian dasar</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Sales Marketing & Finance</h3>
+                <div class="company">KS&K</div>
+                <div class="period">2019 - Sekarang | Surabaya</div>
+                <ul>
+                    <li>Mengembangkan sistem pengarsipan data yang meningkatkan efisiensi pengambilan data hingga 40%</li>
+                    <li>Membuat strategi digital marketing multi-platform yang menaikkan engagement rate hingga 35%</li>
+                    <li>Koordinasi tim lintas divisi untuk kelancaran operasional dan pencapaian target</li>
+                    <li>Berkontribusi pada pertumbuhan revenue year-over-year melalui optimasi proses bisnis</li>
+                    <li>Mengelola campaign management dengan ROI tracking yang terukur</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Freelance Video Editor</h3>
+                <div class="company">LDR Agency</div>
+                <div class="period">2021 - 2023</div>
+                <ul>
+                    <li>Editing konten short-form yang meningkatkan retention rate hingga 50%</li>
+                    <li>Membuat template standar untuk branding consistency di semua platform</li>
+                    <li>Mengoptimalkan workflow editing agar lebih efisien dengan mengurangi production time 30%</li>
+                    <li>Menghasilkan 100+ video konten berkualitas tinggi untuk berbagai platform media sosial</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Freelance Video Editor</h3>
+                <div class="company">AF Agency</div>
+                <div class="period">2022 - 2023</div>
+                <ul>
+                    <li>Membuat template video reusable yang mempercepat proses produksi hingga 40%</li>
+                    <li>Mengubah long-form ke short-form untuk kebutuhan marketing dengan engagement rate tinggi</li>
+                    <li>Quality control konten sebelum distribusi dengan tingkat approval 95%</li>
+                    <li>Kolaborasi dengan tim creative untuk menghasilkan konten yang align dengan brand identity</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Editor & Administrator</h3>
+                <div class="company">Class</div>
+                <div class="period">2019 - 2023 | Surabaya</div>
+                <ul>
+                    <li>Mengelola produksi video dari konsep hingga publikasi dengan timeline yang ketat</li>
+                    <li>Membuat dokumentasi dan laporan kerja terstruktur untuk tracking progress proyek</li>
+                    <li>Implementasi sistem manajemen data internal yang meningkatkan efisiensi tim 25%</li>
+                    <li>Supervisi terhadap 5+ project concurrent dengan success rate 100%</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Administrasi Asisten (Freelance)</h3>
+                <div class="company">PT Jodya Wood Furniture</div>
+                <div class="period">2014 - 2017</div>
+                <ul>
+                    <li>Mengelola pencatatan keuangan dan payroll untuk 20+ karyawan dengan akurasi 100%</li>
+                    <li>Memastikan ketepatan laporan finansial dan budget tracking secara real-time</li>
+                    <li>Mengkoordinasikan alur data administrasi antar departemen</li>
+                    <li>Implementasi sistem filing yang terorganisir untuk kemudahan akses dokumen</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section fade-in">
+        <h2 class="section-title">Proyek Unggulan</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Sistem Prediksi Cuaca Berbasis Machine Learning</h3>
+                <div class="project-period">2025</div>
+                <ul>
+                    <li>Membangun model prediksi cuaca dengan akurasi 85% menggunakan algoritma machine learning</li>
+                    <li>Mengolah dataset 50+ titik data meteorologi menggunakan Python (Pandas, NumPy, Scikit-learn)</li>
+                    <li>Membuat dashboard UI interaktif untuk visualisasi hasil prediksi real-time</li>
+                    <li>Melakukan dokumentasi lengkap untuk publikasi dan reproducibility</li>
+                    <li>Implementasi data preprocessing dan feature engineering untuk optimasi model</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Machine Learning</span>
+                    <span class="tech-tag">Data Analytics</span>
+                    <span class="tech-tag">Statistical Modeling</span>
+                    <span class="tech-tag">Pandas</span>
+                    <span class="tech-tag">NumPy</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Pengembangan Aplikasi Edukasi BelajarIN</h3>
+                <div class="project-period">Februari 2025 - Mei 2025</div>
+                <ul>
+                    <li>Membangun aplikasi edukasi dengan fitur multi-role (guru, siswa, orang tua)</li>
+                    <li>Implementasi forum diskusi real-time, presensi digital, nilai, dan manajemen tugas</li>
+                    <li>Integrasi Firebase Authentication & Firestore untuk data management</li>
+                    <li>Melakukan testing dan perbaikan berkelanjutan dengan user feedback loop</li>
+                    <li>Mendukung 20+ pengguna aktif secara bersamaan dengan performa optimal</li>
+                    <li>Mencapai user satisfaction rate 80% melalui UX design yang user-centered</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-tag">React.js</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Firebase</span>
+                    <span class="tech-tag">Full Stack Development</span>
+                    <span class="tech-tag">UX Design</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Penjualan & Administrasi Organisasi Siswa (OSIS)</h3>
+                <div class="project-period">Agustus 2017 - Februari 2020</div>
+                <ul>
+                    <li>Membuat strategi fundraising yang meningkatkan pemasukan organisasi sebesar 45%</li>
+                    <li>Memimpin pelaksanaan acara sekolah skala besar dengan 500+ peserta</li>
+                    <li>Mengelola dana organisasi dengan transparan dan akuntabilitas penuh</li>
+                    <li>Koordinasi dengan 10+ divisi untuk sinkronisasi program kerja</li>
+                    <li>Implementasi sistem pelaporan keuangan digital untuk transparansi</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-tag">Event Management</span>
+                    <span class="tech-tag">Financial Planning</span>
+                    <span class="tech-tag">Team Leadership</span>
+                    <span class="tech-tag">Fundraising</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Inisiatif Marketing Produk Kreatif</h3>
+                <div class="project-period">Januari 2019 - Juni 2019</div>
+                <ul>
+                    <li>Mengembangkan strategi marketing yang compelling dengan fokus customer engagement</li>
+                    <li>Mengeksekusi transaksi penjualan profesional dengan customer-centric approach</li>
+                    <li>Mencapai rating kepuasan pelanggan tinggi melalui excellent service</li>
+                    <li>Implementasi teknik dialog pelanggan yang efektif untuk closing rate optimal</li>
+                    <li>Analisis feedback pelanggan untuk continuous improvement produk dan layanan</li>
+                </ul>
+                <div class="tech-stack">
+                    <span class="tech-tag">Customer Engagement</span>
+                    <span class="tech-tag">Sales Excellence</span>
+                    <span class="tech-tag">Marketing Strategy</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section fade-in">
+        <h2 class="section-title">Pendidikan & Prestasi</h2>
+        
+        <div class="timeline" style="margin-bottom: 4rem;">
+            <div class="timeline-item">
+                <h3>Teknik Informatika</h3>
+                <div class="company">Universitas Negeri Surabaya</div>
+                <div class="period">2023 - Sekarang</div>
+                <ul>
+                    <li>Mempertahankan performa akademik yang kuat sambil aktif berpartisipasi dalam proyek tim</li>
+                    <li>Mengkoordinasikan multiple proyek pengembangan software dengan tim lintas fungsi</li>
+                    <li>Mengembangkan metodologi problem-solving lanjutan melalui pengalaman hands-on</li>
+                    <li>Fokus pembelajaran: Data Science, Software Engineering, dan Cybersecurity</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <h3>SMA Wachid Hasyim 5 Surabaya</h3>
+                <div class="company">SMA Wachid Hasyim 5</div>
+                <div class="period">Juli 2020 - Mei 2023</div>
+                <ul>
+                    <li>Mendemonstrasikan keterampilan koordinasi yang luar biasa sebagai project leader OSIS</li>
+                    <li>Memfasilitasi distribusi materi edukasi yang efektif antara guru dan siswa</li>
+                    <li>Aktif dalam berbagai kegiatan organisasi dan kepemimpinan</li>
+                </ul>
+            </div>
+        </div>
+
+        <div style="background: rgba(255, 255, 255, 0.05); padding: 3rem; border-radius: 25px; backdrop-filter: blur(15px); border: 1px solid rgba(255, 107, 157, 0.2);">
+            <h3 style="color: #ff6b9d; font-size: 1.5rem; margin-bottom: 2rem; text-align: center;">
+                <i class="fas fa-trophy"></i> Prestasi & Sertifikasi
+            </h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                <div style="display: flex; align-items: center; padding: 1rem; background: rgba(255, 107, 157, 0.1); border-radius: 15px; border: 1px solid rgba(255, 107, 157, 0.2);">
+                    <i class="fas fa-medal" style="color: #ff6b9d; font-size: 1.2rem; margin-right: 1rem;"></i>
+                    <span style="color: #d0d0d0;">SEMI FINALIS Business Proposal - Kompetisi Noble National UNESA FMIPA (2025)</span>
+                </div>
+                <div style="display: flex; align-items: center; padding: 1rem; background: rgba(255, 107, 157, 0.1); border-radius: 15px; border: 1px solid rgba(255, 107, 157, 0.2);">
+                    <i class="fas fa-medal" style="color: #ff6b9d; font-size: 1.2rem; margin-right: 1rem;"></i>
+                    <span style="color: #d0d0d0;">Kompetisi Karya Tulis Ilmiah Nasional - LKTIN FMIPA Unesa (2024)</span>
+                </div>
+                <div style="display: flex; align-items: center; padding: 1rem; background: rgba(255, 107, 157, 0.1); border-radius: 15px; border: 1px solid rgba(255, 107, 157, 0.2);">
+                    <i class="fas fa-certificate" style="color: #ff6b9d; font-size: 1.2rem; margin-right: 1rem;"></i>
+                    <span style="color: #d0d0d0;">Sertifikasi Perencanaan Karir IT (2024)</span>
+                </div>
+                <div style="display: flex; align-items: center; padding: 1rem; background: rgba(255, 107, 157, 0.1); border-radius: 15px; border: 1px solid rgba(255, 107, 157, 0.2);">
+                    <i class="fas fa-certificate" style="color: #ff6b9d; font-size: 1.2rem; margin-right: 1rem;"></i>
+                    <span style="color: #d0d0d0;">Program Pengembangan Kepemimpinan - LKMM-TD (2024)</span>
+                </div>
+                <div style="display: flex; align-items: center; padding: 1rem; background: rgba(255, 107, 157, 0.1); border-radius: 15px; border: 1px solid rgba(255, 107, 157, 0.2);">
+                    <i class="fas fa-certificate" style="color: #ff6b9d; font-size: 1.2rem; margin-right: 1rem;"></i>
+                    <span style="color: #d0d0d0;">Sertifikasi Public Speaking & Entrepreneurship (2024)</span>
+                </div>
+                <div style="display: flex; align-items: center; padding: 1rem; background: rgba(255, 107, 157, 0.1); border-radius: 15px; border: 1px solid rgba(255, 107, 157, 0.2);">
+                    <i class="fas fa-certificate" style="color: #ff6b9d; font-size: 1.2rem; margin-right: 1rem;"></i>
+                    <span style="color: #d0d0d0;">Program Pengembangan Future Entrepreneur FEST (2024)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section fade-in">
+        <h2 class="section-title">Mari Berkolaborasi</h2>
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <p style="font-size: 1.2rem; color: #d0d0d0; max-width: 600px; margin: 0 auto;">
+                Saya selalu terbuka untuk proyek-proyek menarik, kolaborasi, atau sekadar berdiskusi tentang teknologi. 
+                Mari wujudkan ide-ide inovatif bersama!
+            </p>
+        </div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <h3>Email</h3>
+                <a href="mailto:ajavantara@gmail.com">ajavantara@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <h3>WhatsApp</h3>
+                <a href="https://wa.me/6285642058221" target="_blank">+62 856 4205 8221</a>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <h3>LinkedIn</h3>
+                <a href="https://www.linkedin.com/in/muhammad-andrean-javantara-514484250" target="_blank">Connect with me</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Lokasi</h3>
+                <p>Surabaya, Jawa Timur, Indonesia</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/muhammad-andrean-javantara-514484250" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:ajavantara@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://wa.me/6285642058221" target="_blank" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="tel:+6285642058221" title="Phone">
+                    <i class="fas fa-phone"></i>
+                </a>
+            </div>
+            <p class="footer-text">&copy; 2025 Muhammad Andrean Javantara. Dibuat dengan ❤️</p>
+            <p style="color: #888; font-size: 0.9rem; margin-top: 1rem;">
+                "Technology is best when it brings people together" - Matt Mullenweg
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -100px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(50px)';
+            section.style.transition = 'all 0.8s ease';
+            observer.observe(section);
+        });
+
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 100) {
+                nav.style.background = 'rgba(26, 26, 46, 0.98)';
+                nav.style.boxShadow = '0 5px 30px rgba(255, 107, 157, 0.1)';
+            } else {
+                nav.style.background = 'rgba(26, 26, 46, 0.95)';
+                nav.style.boxShadow = 'none';
+            }
+            
+            if (scrollTop > lastScrollTop && scrollTop > 200) {
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                nav.style.transform = 'translateY(0)';
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        const progressBar = document.createElement('div');
+        progressBar.style.cssText = `
+            position: fixed; top: 0; left: 0; width: 0%; height: 3px;
+            background: linear-gradient(45deg, #ff6b9d, #c44569);
+            z-index: 10000; transition: width 0.1s ease;
+        `;
+        document.body.appendChild(progressBar);
+
+        window.addEventListener('scroll', () => {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            progressBar.style.width = scrollPercent + '%';
+        });
+    </script>
+</body>
+</html>
